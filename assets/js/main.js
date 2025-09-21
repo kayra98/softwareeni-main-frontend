@@ -68,7 +68,10 @@
 	/*=============================================
 		=    		Mobile Menu			      =
 	=============================================*/
-	$(document).ready(function() {
+	// Multiple initialization methods for server compatibility
+	function initializeMobileMenu() {
+		console.log('Initializing mobile menu...');
+		
 		//SubMenu Dropdown Toggle
 		if ($('.tgmenu__wrap li.menu-item-has-children ul').length) {
 			$('.tgmenu__wrap .navigation li.menu-item-has-children').append('<div class="dropdown-btn"><span class="plus-line"></span></div>');
@@ -76,29 +79,91 @@
 
 		//Mobile Nav Hide Show
 		if ($('.tgmobile__menu').length) {
-
+			console.log('Mobile menu container found');
+			
 			var mobileMenuContent = $('.tgmenu__wrap .tgmenu__main-menu').html();
-			$('.tgmobile__menu .tgmobile__menu-box .tgmobile__menu-outer').append(mobileMenuContent);
+			if (mobileMenuContent) {
+				$('.tgmobile__menu .tgmobile__menu-box .tgmobile__menu-outer').append(mobileMenuContent);
+				console.log('Mobile menu content populated');
+			}
 
 			//Dropdown Button
-			$('.tgmobile__menu li.menu-item-has-children .dropdown-btn').on('click', function () {
+			$(document).off('click.mobileDropdown').on('click.mobileDropdown', '.tgmobile__menu li.menu-item-has-children .dropdown-btn', function () {
 				$(this).toggleClass('open');
 				$(this).prev('ul').slideToggle(300);
 			});
 			
-			//Menu Toggle Btn - Hamburger butonuna tıklandığında
-			$(document).on('click', '.mobile-nav-toggler', function (e) {
+			//Menu Toggle Btn - Multiple event binding for server compatibility
+			$(document).off('click.mobileToggle').on('click.mobileToggle', '.mobile-nav-toggler', function (e) {
 				e.preventDefault();
-			//	console.log('Hamburger menu clicked!'); // Debug için
+				e.stopPropagation();
+				console.log('Hamburger menu clicked!');
 				$('body').addClass('mobile-menu-visible');
+				return false;
+			});
+			
+			// Direct binding as fallback
+			$('.mobile-nav-toggler').off('click.directToggle').on('click.directToggle', function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+				console.log('Direct hamburger menu clicked!');
+				$('body').addClass('mobile-menu-visible');
+				return false;
 			});
 
-			//Menu Close - Menüyü kapatma
-			$(document).on('click', '.tgmobile__menu-backdrop, .tgmobile__menu .close-btn, .tgmobile__menu .navigation li a', function () {
-				//console.log('Menu close clicked!'); // Debug için
+			//Menu Close - Multiple binding methods
+			$(document).off('click.mobileClose').on('click.mobileClose', '.tgmobile__menu-backdrop, .tgmobile__menu .close-btn, .tgmobile__menu .navigation li a', function (e) {
+				console.log('Menu close clicked!');
 				$('body').removeClass('mobile-menu-visible');
 			});
+			
+			// Direct close binding
+			$('.tgmobile__menu-backdrop, .tgmobile__menu .close-btn').off('click.directClose').on('click.directClose', function (e) {
+				console.log('Direct menu close clicked!');
+				$('body').removeClass('mobile-menu-visible');
+			});
+		} else {
+			console.error('Mobile menu container not found!');
 		}
+		
+		console.log('Mobile menu initialization complete');
+	}
+	
+	// Initialize on DOM ready
+	$(document).ready(function() {
+		initializeMobileMenu();
+	});
+	
+	// Re-initialize on window load as fallback
+	$(window).on('load', function() {
+		setTimeout(function() {
+			initializeMobileMenu();
+		}, 100);
+	});
+	
+	// Vanilla JS fallback for servers with jQuery issues
+	document.addEventListener('DOMContentLoaded', function() {
+		setTimeout(function() {
+			var togglers = document.querySelectorAll('.mobile-nav-toggler');
+			var closeElements = document.querySelectorAll('.tgmobile__menu-backdrop, .tgmobile__menu .close-btn');
+			
+			togglers.forEach(function(toggler) {
+				toggler.addEventListener('click', function(e) {
+					e.preventDefault();
+					console.log('Vanilla JS: Hamburger clicked!');
+					document.body.classList.add('mobile-menu-visible');
+				});
+			});
+			
+			closeElements.forEach(function(closer) {
+				closer.addEventListener('click', function(e) {
+					console.log('Vanilla JS: Menu close clicked!');
+					document.body.classList.remove('mobile-menu-visible');
+				});
+			});
+			
+			console.log('Vanilla JS mobile menu initialized');
+		}, 200);
 	});
 
 

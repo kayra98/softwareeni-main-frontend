@@ -1,0 +1,52 @@
+<!-- Cloudflare CORS ve Integrity Hata Önleyici -->
+<!-- Bu dosyayı tüm HTML sayfalarınızın <head> bölümüne ekleyin -->
+
+<!-- Cloudflare otomatik script enjeksiyonunu devre dışı bırak -->
+<meta name="cf-settings" content="no-minify,no-rocket-loader,no-email-obfuscation">
+<meta http-equiv="Cache-Control" content="no-transform">
+
+<!-- CSP header ile Cloudflare script'lerini engelle -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' data:; object-src 'none';">
+
+<!-- Cloudflare beacon engelleme scripti -->
+<script>
+// Cloudflare beacon script'ini sayfa yüklenmeden önce engelle
+(function() {
+    'use strict';
+    
+    // Document.write override ile script enjeksiyonunu engelle
+    const originalWrite = document.write;
+    document.write = function(content) {
+        if (typeof content === 'string' && content.includes('cloudflareinsights.com')) {
+            console.log('Blocked Cloudflare script injection via document.write');
+            return;
+        }
+        return originalWrite.apply(this, arguments);
+    };
+    
+    // appendChild override ile script eklemeyi engelle
+    const originalAppendChild = Node.prototype.appendChild;
+    Node.prototype.appendChild = function(child) {
+        if (child.tagName === 'SCRIPT' && 
+            child.src && 
+            child.src.includes('cloudflareinsights.com')) {
+            console.log('Blocked Cloudflare script via appendChild:', child.src);
+            return child;
+        }
+        return originalAppendChild.apply(this, arguments);
+    };
+    
+    // insertBefore override
+    const originalInsertBefore = Node.prototype.insertBefore;
+    Node.prototype.insertBefore = function(newNode, referenceNode) {
+        if (newNode.tagName === 'SCRIPT' && 
+            newNode.src && 
+            newNode.src.includes('cloudflareinsights.com')) {
+            console.log('Blocked Cloudflare script via insertBefore:', newNode.src);
+            return newNode;
+        }
+        return originalInsertBefore.apply(this, arguments);
+    };
+    
+})();
+</script>

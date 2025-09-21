@@ -1,0 +1,9 @@
+﻿
+Name            SizeKB FullName                                         
+----            ------ --------                                         
+s1221.jpg     18452,86 D:\projeler\sftw\assets\img\project\s1221.jpg    
+sfteng.jpg    18452,86 D:\projeler\sftw\assets\img\hero\sfteng.jpg      
+import.jpg    12119,03 D:\projeler\sftw\assets\img\project\import.jpg   
+ecommerce.jpg   8210,9 D:\projeler\sftw\assets\img\project\ecommerce.jpg
+
+

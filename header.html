@@ -4,17 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/custom-animation.css">
-    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/flaticon.css">
-    <link rel="stylesheet" href="assets/css/spacing.css">
-    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <!-- Disable Cloudflare auto-injections -->
+    <meta name="cf-settings" content="no-minify,no-rocket-loader">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    
+    <!-- Performance optimizations -->
+    <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+    <link rel="dns-prefetch" href="//wa.me">
+    
+    <!-- Font preloads with relative paths -->
+    <link rel="preload" href="./assets/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Preload critical resources with relative paths -->
+    <link rel="preload" href="./assets/css/main.css" as="style">
+    <link rel="preload" href="./assets/js/vendor/jquery-3.6.0.min.js" as="script">
+    
+    <!-- Inline Critical CSS for instant rendering -->
+    <style>
+        /* Critical CSS - Inline styles for faster rendering */
+        body{margin:0;padding:0;font-family:Arial,sans-serif;line-height:1.6}
+        .container{max-width:1200px;margin:0 auto;padding:0 15px}
+        .row{display:flex;flex-wrap:wrap;margin:0 -15px}
+        .col-6,.col-md-6,.col-lg-6,.col-xl-6{flex:0 0 50%;max-width:50%;padding:0 15px}
+        .col-12,.col-md-12,.col-lg-12,.col-xl-12{flex:0 0 100%;max-width:100%;padding:0 15px}
+        .d-flex{display:flex}.d-none{display:none}.justify-content-end{justify-content:flex-end}
+        .align-items-center{align-items:center}.text-end{text-align:right}
+        .tg-header__area{background:#000;padding:15px 0}.logo img{max-height:50px}
+        
+        /* Enhanced mobile nav toggler styles */
+        .mobile-nav-toggler{
+            color:#fff !important;
+            font-size:20px !important;
+            cursor:pointer !important;
+            padding:10px !important;
+            display:flex !important;
+            align-items:center !important;
+            justify-content:center !important;
+            background:transparent !important;
+            border:none !important;
+            outline:none !important;
+            user-select:none !important;
+            -webkit-tap-highlight-color:transparent !important;
+            transition:all 0.3s ease !important;
+            min-width:40px !important;
+            min-height:40px !important;
+        }
+        .mobile-nav-toggler:hover,.mobile-nav-toggler:focus,.mobile-nav-toggler:active{
+            opacity:0.8 !important;
+            transform:scale(1.1) !important;
+        }
+        .mobile-nav-toggler i{font-size:18px !important;pointer-events:none !important;}
+        
+        /* Hamburger icon fallback */
+        .mobile-nav-toggler i:before{content:"\2630";font-family:Arial,sans-serif;font-size:20px;font-weight:bold}
+        .hamburger-fallback{font-size:24px !important;font-weight:bold !important;pointer-events:none !important;}
+        
+        /* Mobile menu styles */
+        .tgmobile__menu{
+            position:fixed !important;
+            right:0 !important;
+            top:0 !important;
+            width:300px !important;
+            height:100% !important;
+            background:#000 !important;
+            transform:translateX(101%) !important;
+            transition:transform 0.3s ease !important;
+            z-index:9999 !important;
+            visibility:hidden !important;
+        }
+        .mobile-menu-visible .tgmobile__menu{
+            transform:translateX(0) !important;
+            visibility:visible !important;
+        }
+        .tgmobile__menu-backdrop{
+            position:fixed !important;
+            top:0 !important;
+            left:0 !important;
+            width:100% !important;
+            height:100% !important;
+            background:rgba(0,0,0,0.5) !important;
+            opacity:0 !important;
+            visibility:hidden !important;
+            transition:all 0.3s ease !important;
+            z-index:9998 !important;
+        }
+        .mobile-menu-visible .tgmobile__menu-backdrop{
+            opacity:1 !important;
+            visibility:visible !important;
+        }
+        .mobile-menu-visible{overflow:hidden !important;}
+        
+        .lazy{opacity:0;transition:opacity 0.3s}.lazy-loaded{opacity:1}
+        @media (max-width:767px){.d-none{display:block}.d-xl-none{display:block}}
+        @media (min-width:1200px){.d-xl-none{display:none !important}}
+    </style>
+    
+    <!-- Critical CSS loaded immediately with relative paths -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    
+    <!-- Non-critical CSS loaded asynchronously -->
+    <link rel="preload" href="./assets/css/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="./assets/css/custom-animation.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="./assets/css/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="./assets/css/magnific-popup.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="./assets/css/flaticon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="./assets/css/spacing.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Fallback for browsers that don't support preload -->
+    <noscript>
+        <link rel="stylesheet" href="./assets/css/animate.min.css">
+        <link rel="stylesheet" href="./assets/css/custom-animation.css">
+        <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
+        <link rel="stylesheet" href="./assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="./assets/css/flaticon.css">
+        <link rel="stylesheet" href="./assets/css/spacing.css">
+    </noscript>
 
 </head>
 <body>
@@ -69,7 +178,7 @@
                     <div class="col-xl-2 col-lg-5 col-md-5 col-6">
                         <div class="logo">
                             <a href="index.html">
-                                <img src="assets/img/logo/logo-white.png" alt="#">
+                                <img src="./assets/img/logo/logo-white.png" alt="#">
                             </a>
                         </div>
                     </div>
@@ -80,23 +189,25 @@
                                     <ul class="navigation">
                                         <li class="menu-item-has-children"><a href="index.html">Ana sayfa</a>
                                             <ul class="sub-menu">
-                                                <li><a href="Web-Design.html">WEB tasarımı</a></li>
+                                                
                                             </ul>
                                         </li>
                                         <li><a href="about-us.html">Hakkımızda</a></li>
                                         <li class="menu-item-has-children">
                                             <a href="service.html">Hizmetlerimiz</a>
                                             <ul class="sub-menu">
-                                                <li><a href="service.html"></a></li>
+                                                <li><a href="Web-Design.html">WEB tasarımı</a></li>
+                                          
                                                 <li><a href="service-details.html">Hizmet Detayları</a></li>
                                             </ul>
                                         </li>
                                         <li class="menu-item-has-children">
                                             <a href="project.html">Projeler</a>
                                             <ul class="sub-menu">
+                                                
                                                 <li><a href="project.html">Proje</a></li>
                                                 <li><a href="project-details.html">Proje Detayları</a></li>
-                                            </ul>
+                                            </ul>   
                                         </li>
                                         
                                         <li><a href="contact.html">İletişim</a></li>
@@ -110,7 +221,7 @@
                             <div class="tgmenu__action d-none d-sm-flex d-flex align-items-center">
                                 <div class="tgmenu__icon">
                                     <span>
-                                        <img src="assets/img/header/calling.png" alt="">
+                                        <img src="./assets/img/header/calling.png" alt="">
                                     </span>
                                 </div>
                                 <div class="tgmenu__content">
@@ -118,8 +229,10 @@
                                     <a href="https://wa.me/905518885886">+90 (551) 888 58 86</a>
                                 </div>
                             </div>
-                            <div class="mobile-nav-toggler d-xl-none">
+                            <div class="mobile-nav-toggler d-xl-none" id="mobile-menu-toggle" role="button" tabindex="0" aria-label="Toggle mobile menu">
                                 <i class="fas fa-bars"></i>
+                                <!-- Fallback hamburger icon -->
+                                <span class="hamburger-fallback" style="display:none;">☰</span>
                             </div>
                         </div>
                     </div>
@@ -129,12 +242,12 @@
         <!-- header-area-end -->
 
               <!-- Mobile Menu  -->
-        <div class="tgmobile__menu">
+        <div class="tgmobile__menu" id="mobile-menu-container">
             <nav class="tgmobile__menu-box">
-                <div class="close-btn"><i class="fa-sharp fa-regular fa-xmark"></i></div>
+                <div class="close-btn" id="mobile-menu-close"><i class="fa-sharp fa-regular fa-xmark"></i></div>
                 <div class="nav-logo">
                     <a href="index.html">
-                        <img src="assets/img/logo/logo-white.png" alt="Nerko">
+                        <img src="./assets/img/logo/logo-white.png" alt="Nerko">
                     </a>
                 </div>
                 <div class="tgmobile__menu-outer">
@@ -151,7 +264,7 @@
                 </div>
             </nav>
         </div>
-        <div class="tgmobile__menu-backdrop"></div>
+        <div class="tgmobile__menu-backdrop" id="mobile-menu-backdrop"></div>
         <!-- End Mobile Menu -->
 
 
@@ -163,17 +276,60 @@
 
 
         </header>
-    <!-- JS Scripts -->
-    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/isotope.pkgd.min.js"></script>
-    <script src="assets/js/purecounter.js"></script>
-    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/js/wow.js"></script>
-    <script src="assets/js/ajax-form.js"></script>
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <script src="assets/js/magnific-popup.js"></script>
-    <script src="assets/js/main.js"></script>
+    <!-- Optimized JS loading - Critical scripts first -->
+    <script src="./assets/js/cloudflare-blocker.js"></script>
+    <script src="./assets/js/mobile-menu-server.js"></script>
+    <script src="./assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/lazy-load.js"></script>
+    
+    <!-- Server Debug Script (remove in production) -->
+    <script src="./assets/js/server-debug.js"></script>
+    
+    <!-- FontAwesome fallback check -->
+    <script>
+        // Check if FontAwesome is loaded, if not show fallback
+        setTimeout(function() {
+            var faIcon = document.querySelector('.fas.fa-bars');
+            if (faIcon && window.getComputedStyle(faIcon, ':before').content === 'none') {
+                faIcon.style.display = 'none';
+                var fallback = document.querySelector('.hamburger-fallback');
+                if (fallback) {
+                    fallback.style.display = 'inline-block';
+                }
+            }
+        }, 500); // Increased timeout for server response
+    </script>
+    
+    <!-- Non-critical scripts loaded asynchronously -->
+    <script>
+        // Async load non-critical scripts with relative paths
+        function loadScript(src) {
+            var script = document.createElement('script');
+            script.src = './' + src;
+            script.async = true;
+            script.onerror = function() {
+                console.warn('Failed to load script: ' + src);
+            };
+            document.head.appendChild(script);
+        }
+        
+        // Load scripts after page load
+        window.addEventListener('load', function() {
+            loadScript('assets/js/bootstrap.min.js');
+            loadScript('assets/js/isotope.pkgd.min.js');
+            loadScript('assets/js/purecounter.js');
+            loadScript('assets/js/imagesloaded.pkgd.min.js');
+            loadScript('assets/js/wow.js');
+            loadScript('assets/js/ajax-form.js');
+            loadScript('assets/js/swiper-bundle.min.js');
+            loadScript('assets/js/magnific-popup.js');
+            
+            // Load main.js last as it depends on others
+            setTimeout(function() {
+                loadScript('assets/js/main.js');
+            }, 200); // Increased timeout for server
+        });
+    </script>
 </body>
 </html>
 
