@@ -6,7 +6,12 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Softwareeni.com yazılım</title>
     <meta name="description" content="Softwareeni.com yazılım, web tasarım, mobil uygulama, e-ticaret, seo, sosyal medya yönetimi ve dijital pazarlama hizmetleri sunan bir yazılım firmasıdır.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
+    
+    <!-- Mobile optimization meta tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <!-- Disable Cloudflare auto-injections -->
     <meta name="cf-settings" content="no-minify,no-rocket-loader">
@@ -25,6 +30,364 @@
     <link rel="stylesheet" href="assets/css/flaticon.css">
     <link rel="stylesheet" href="assets/css/spacing.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    
+    <!-- Mobile responsive fixes -->
+    <style>
+        /* Critical mobile fixes for index page */
+        @media (max-width: 768px) {
+            /* Container fixes */
+            .container {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                max-width: 100% !important;
+            }
+            
+            /* Hero section mobile fixes */
+            .tg-hero-area {
+                padding: 80px 0 60px !important;
+                overflow: hidden !important;
+            }
+            
+            .tg-hero-title {
+                font-size: 28px !important;
+                line-height: 1.2 !important;
+                margin-bottom: 20px !important;
+            }
+            
+            .tg-hero-content {
+                text-align: center !important;
+                padding: 0 10px !important;
+            }
+            
+            .tg-hero-text {
+                font-size: 16px !important;
+                line-height: 1.5 !important;
+                margin-bottom: 25px !important;
+            }
+            
+            .tg-hero-text p {
+                margin-bottom: 15px !important;
+            }
+            
+            .tg-hero-text br {
+                display: none !important;
+            }
+            
+            /* Button fixes */
+            .tg-btn-gradient {
+                font-size: 14px !important;
+                padding: 12px 20px !important;
+                display: inline-block !important;
+                white-space: nowrap !important;
+            }
+            
+            /* Image and shape fixes */
+            .tg-hero-thumb-box,
+            .tg-hero-shape-3,
+            .tg-hero-shape-4,
+            .tg-hero-shape-5,
+            .tg-hero-shape-1,
+            .tg-hero-shape-2 {
+                display: none !important;
+            }
+            
+            /* Section spacing fixes */
+            .tg-hero-ptb {
+                padding-top: 100px !important;
+                padding-bottom: 80px !important;
+            }
+            
+            /* Feature area mobile fixes */
+            .tg-feature-area {
+                padding: 40px 0 !important;
+                margin-top: -50px !important;
+                position: relative !important;
+                z-index: 10 !important;
+            }
+            
+            .tg-feature-item {
+                margin-bottom: 30px !important;
+                padding: 20px 15px !important;
+            }
+            
+            .tg-feature-title {
+                font-size: 16px !important;
+                line-height: 1.3 !important;
+            }
+            
+            /* Row spacing */
+            .row {
+                margin-left: -10px !important;
+                margin-right: -10px !important;
+            }
+            
+            .row > * {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+            }
+            
+            /* Typography fixes */
+            h1 {
+                font-size: 28px !important;
+                line-height: 1.2 !important;
+            }
+            
+            h2 {
+                font-size: 24px !important;
+                line-height: 1.3 !important;
+            }
+            
+            h3 {
+                font-size: 20px !important;
+                line-height: 1.4 !important;
+            }
+            
+            h4 {
+                font-size: 18px !important;
+                line-height: 1.4 !important;
+            }
+            
+            h5 {
+                font-size: 16px !important;
+                line-height: 1.4 !important;
+            }
+            
+            /* General content spacing */
+            .mb-30 {
+                margin-bottom: 20px !important;
+            }
+            
+            .mb-35 {
+                margin-bottom: 25px !important;
+            }
+            
+            .mb-45 {
+                margin-bottom: 30px !important;
+            }
+            
+            /* Prevent horizontal overflow */
+            body {
+                overflow-x: hidden !important;
+            }
+            
+            * {
+                box-sizing: border-box !important;
+            }
+            
+            /* Fix any absolute positioning issues */
+            [class*="shape"],
+            [class*="bg-"] {
+                max-width: 100% !important;
+            }
+            
+            /* Grid system fixes */
+            .col-xl-3,
+            .col-lg-3,
+            .col-md-4,
+            .col-sm-6 {
+                width: 100% !important;
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+                margin-bottom: 20px !important;
+            }
+            
+            /* About Experience Box Mobile Fixes */
+            .tg-about-experience-box {
+                margin-bottom: 20px !important;
+            }
+            
+            .tg-about-experience span {
+                display: none !important; /* Hide text on mobile, keep only 8+ */
+            }
+            
+            .tg-about-experience i {
+                font-size: 24px !important;
+                display: block !important;
+                text-align: center !important;
+            }
+            
+            /* FAQ Section - align-items-start fix with better spacing */
+            .row.align-items-start {
+                align-items: flex-start !important;
+                margin-left: -5px !important;
+                margin-right: -5px !important;
+            }
+            
+            .row.align-items-start .col-xl-6,
+            .row.align-items-start .col-lg-6 {
+                margin-bottom: 30px !important;
+                padding-left: 5px !important;
+                padding-right: 5px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+            
+            /* Reduce container padding to minimize side spacing */
+            .container {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+                max-width: 100% !important;
+            }
+            
+            /* FAQ Content - full width utilization */
+            .tg-faq-content {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                width: 100% !important;
+            }
+            
+            /* Experience/Service sections mobile optimization */
+            .tg-exp-content {
+                text-align: center !important;
+                margin-left: 15px !important;
+                margin-right: 15px !important;
+                padding: 15px !important;
+            }
+            
+            .tg-exp-content h4 {
+                text-align: center !important;
+                margin-bottom: 15px !important;
+            }
+            
+            .tg-exp-content p {
+                text-align: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                max-width: 100% !important;
+                padding: 0 10px !important;
+            }
+            
+            /* Experience button alignment - center from bottom */
+            .tg-exp-btn-box {
+                text-align: center !important;
+                margin-top: 20px !important;
+                padding: 0 15px !important;
+            }
+            
+            .tg-exp-btn-box .tg-btn-gradient-border {
+                display: inline-block !important;
+                margin: 0 auto !important;
+            }
+            
+            /* Experience item rows mobile fix */
+            .tg-exp-item .row {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            
+            .tg-exp-item .col-xl-6,
+            .tg-exp-item .col-lg-8,
+            .tg-exp-item .col-lg-4,
+            .tg-exp-item .col-md-8,
+            .tg-exp-item .col-md-4 {
+                width: 100% !important;
+                max-width: 100% !important;
+                flex: 0 0 100% !important;
+                margin-bottom: 10px !important;
+            }
+            
+            /* FAQ Thumb fixes */
+            .tg-faq-thumb-wrap {
+                margin-bottom: 30px !important;
+            }
+            
+            .tg-faq-thumb-main,
+            .tg-faq-thumb-sub {
+                max-width: 100% !important;
+                height: auto !important;
+            }
+            
+            .tg-faq-thumb-main img,
+            .tg-faq-thumb-sub img {
+                width: 100% !important;
+                height: auto !important;
+                object-fit: cover !important;
+            }
+        }
+        
+        /* Desktop version - make sure text shows */
+        @media (min-width: 769px) {
+            .tg-about-experience span {
+                display: inline !important; /* Show text on desktop */
+            }
+            
+            /* Fix desktop align-items-start alignment */
+            .row.align-items-start {
+                align-items: flex-start !important;
+            }
+            
+            .row.align-items-start .col-xl-6,
+            .row.align-items-start .col-lg-6 {
+                display: flex !important;
+                flex-direction: column !important;
+            }
+            
+            /* FAQ section desktop fixes */
+            .tg-faq-thumb-wrap {
+                position: relative !important;
+                height: fit-content !important;
+            }
+        }
+        
+        /* Tablet specific fixes */
+        @media (min-width: 577px) and (max-width: 768px) {
+            .row.align-items-start {
+                align-items: center !important;
+            }
+            
+            .tg-about-experience span {
+                font-size: 12px !important;
+                display: inline !important;
+            }
+            
+            .tg-about-experience i {
+                font-size: 28px !important;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .tg-hero-title {
+                font-size: 24px !important;
+            }
+            
+            .tg-hero-text {
+                font-size: 14px !important;
+            }
+            
+            .container {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+            }
+            
+            .tg-btn-gradient {
+                font-size: 13px !important;
+                padding: 10px 16px !important;
+            }
+            
+            .tg-feature-item {
+                padding: 15px 10px !important;
+            }
+            
+            /* About Experience Box Detailed Mobile Styling */
+            .tg-about-experience-box {
+                text-align: center !important;
+                padding: 15px !important;
+            }
+            
+            .tg-about-experience {
+                justify-content: center !important;
+                flex-direction: column !important;
+            }
+            
+            .tg-about-experience i {
+                font-size: 32px !important;
+                font-weight: bold !important;
+                color: #007bff !important;
+                margin-bottom: 0 !important;
+            }
+        }
+    </style>
+    
 <meta name="facebook-domain-verification" content="pfwc26dbulmhgkf5gp0eeqgu3nqw7t" />
 </head>
 
@@ -54,6 +417,24 @@
     </div>
     <!-- back to top end -->
  <div id="header"></div>
+
+    <!-- Header loading script -->
+    <script>
+        // Load header for mobile compatibility
+        $(document).ready(function() {
+            if ($("#header").length && $("#header").is(':empty')) {
+                $("#header").load("header.html", function(response, status, xhr) {
+                    if (status == "error") {
+                        console.log("Header load error: " + xhr.status + " " + xhr.statusText);
+                        // Fallback header content
+                        $("#header").html('<header><div class="container"><div class="row"><div class="col-12"><h1>Softwareeni.com</h1></div></div></div></header>');
+                    } else {
+                        console.log("Header loaded successfully");
+                    }
+                });
+            }
+        });
+    </script>
 
 
     <main>
@@ -851,12 +1232,235 @@
     </main>
 <div id="footer"></div>
 
+    <!-- Footer loading script -->
+    <script>
+        // Load footer for mobile compatibility
+        $(document).ready(function() {
+            if ($("#footer").length && $("#footer").is(':empty')) {
+                $("#footer").load("footer.html", function(response, status, xhr) {
+                    if (status == "error") {
+                        console.log("Footer load error: " + xhr.status + " " + xhr.statusText);
+                        // Fallback footer content
+                        $("#footer").html('<footer><div class="container"><div class="row"><div class="col-12 text-center"><p>&copy; 2025 Softwareeni.com - Tüm hakları saklıdır.</p></div></div></div></footer>');
+                    } else {
+                        console.log("Footer loaded successfully");
+                    }
+                });
+            }
+        });
+    </script>
+
 
     <!-- Site güncelleme bilgilendirme modalı -->
 
 
     <!-- JS here -->
     <script src="assets/js/cloudflare-blocker.js"></script>
+    
+    <!-- Mobile compatibility script -->
+    <script>
+        // Mobile responsive fixes
+        (function() {
+            'use strict';
+            
+            // Fix viewport on mobile
+            function fixMobileViewport() {
+                if (window.innerWidth <= 768) {
+                    var viewport = document.querySelector('meta[name=viewport]');
+                    if (viewport) {
+                        viewport.content = 'width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes';
+                    }
+                }
+            }
+            
+            // Fix layout overflow
+            function fixMobileLayout() {
+                if (window.innerWidth <= 768) {
+                    document.body.style.overflowX = 'hidden';
+                    
+                    // Fix container widths - minimize side padding
+                    var containers = document.querySelectorAll('.container');
+                    containers.forEach(function(container) {
+                        container.style.maxWidth = '100%';
+                        container.style.paddingLeft = '10px';
+                        container.style.paddingRight = '10px';
+                        container.style.width = '100%';
+                    });
+                    
+                    // Global row fixes for better mobile spacing
+                    var allRows = document.querySelectorAll('.row');
+                    allRows.forEach(function(row) {
+                        row.style.marginLeft = '-5px';
+                        row.style.marginRight = '-5px';
+                        
+                        // Fix all columns in rows
+                        var allCols = row.querySelectorAll('[class*="col-"]');
+                        allCols.forEach(function(col) {
+                            col.style.paddingLeft = '5px';
+                            col.style.paddingRight = '5px';
+                        });
+                    });
+                    
+                    // Fix About Experience Box - keep only "8+" on mobile
+                    var experienceBoxes = document.querySelectorAll('.tg-about-experience');
+                    experienceBoxes.forEach(function(experienceBox) {
+                        var spans = experienceBox.querySelectorAll('span');
+                        spans.forEach(function(span) {
+                            // Check if span contains only "+" or numbers
+                            var text = span.textContent.trim();
+                            if (text === '+' || /^\d+$/.test(text)) {
+                                span.style.display = 'inline'; // Keep numbers and +
+                            } else {
+                                span.style.display = 'none'; // Hide descriptive text
+                            }
+                        });
+                    });
+                    
+                    // Fix FAQ align-items-start issues on mobile
+                    var faqRows = document.querySelectorAll('.row.align-items-start');
+                    faqRows.forEach(function(row) {
+                        row.style.alignItems = 'flex-start'; // Keep flex-start on mobile
+                        row.style.marginLeft = '-5px';
+                        row.style.marginRight = '-5px';
+                        row.style.width = '100%';
+                        
+                        // Fix column spacing - minimize right padding
+                        var cols = row.querySelectorAll('.col-xl-6, .col-lg-6, .col-md-6');
+                        cols.forEach(function(col) {
+                            col.style.marginBottom = '20px';
+                            col.style.paddingLeft = '5px';
+                            col.style.paddingRight = '5px';
+                            col.style.width = '100%';
+                            col.style.maxWidth = '100%';
+                            col.style.flex = '0 0 100%';
+                        });
+                        
+                        // Minimize FAQ content padding
+                        var faqContents = row.querySelectorAll('.tg-faq-content');
+                        faqContents.forEach(function(content) {
+                            content.style.paddingLeft = '0';
+                            content.style.paddingRight = '0';
+                            content.style.width = '100%';
+                        });
+                        
+                        // Center FAQ thumbs but reduce margins
+                        var thumbs = row.querySelectorAll('.tg-faq-thumb-wrap');
+                        thumbs.forEach(function(thumb) {
+                            thumb.style.margin = '0 0 15px 0';
+                            thumb.style.width = '100%';
+                            thumb.style.maxWidth = 'none';
+                        });
+                    });
+                    
+                    // Fix Experience/Service sections mobile layout
+                    var expContents = document.querySelectorAll('.tg-exp-content');
+                    expContents.forEach(function(content) {
+                        content.style.textAlign = 'center';
+                        content.style.marginLeft = '15px';
+                        content.style.marginRight = '15px';
+                        content.style.padding = '15px';
+                        
+                        // Center titles and paragraphs
+                        var titles = content.querySelectorAll('h4');
+                        titles.forEach(function(title) {
+                            title.style.textAlign = 'center';
+                            title.style.marginBottom = '15px';
+                        });
+                        
+                        var paragraphs = content.querySelectorAll('p');
+                        paragraphs.forEach(function(p) {
+                            p.style.textAlign = 'center';
+                            p.style.marginLeft = 'auto';
+                            p.style.marginRight = 'auto';
+                            p.style.padding = '0 10px';
+                        });
+                    });
+                    
+                    // Fix Experience buttons - center from bottom
+                    var expButtons = document.querySelectorAll('.tg-exp-btn-box');
+                    expButtons.forEach(function(btnBox) {
+                        btnBox.style.textAlign = 'center';
+                        btnBox.style.marginTop = '20px';
+                        btnBox.style.padding = '0 15px';
+                        
+                        var gradientBorder = btnBox.querySelector('.tg-btn-gradient-border');
+                        if (gradientBorder) {
+                            gradientBorder.style.display = 'inline-block';
+                            gradientBorder.style.margin = '0 auto';
+                        }
+                    });
+                    
+                    // Fix Experience item rows
+                    var expItems = document.querySelectorAll('.tg-exp-item');
+                    expItems.forEach(function(item) {
+                        var row = item.querySelector('.row');
+                        if (row) {
+                            row.style.flexDirection = 'column';
+                            row.style.alignItems = 'center';
+                            
+                            var cols = row.querySelectorAll('[class*="col-"]');
+                            cols.forEach(function(col) {
+                                col.style.width = '100%';
+                                col.style.maxWidth = '100%';
+                                col.style.flex = '0 0 100%';
+                                col.style.marginBottom = '10px';
+                            });
+                        }
+                    });
+                } else {
+                    // Desktop - show all text in experience box
+                    var experienceBoxes = document.querySelectorAll('.tg-about-experience');
+                    experienceBoxes.forEach(function(experienceBox) {
+                        var spans = experienceBox.querySelectorAll('span');
+                        spans.forEach(function(span) {
+                            span.style.display = 'inline';
+                        });
+                    });
+                    
+                    // Desktop - restore normal alignment for FAQ
+                    var faqRows = document.querySelectorAll('.row.align-items-start');
+                    faqRows.forEach(function(row) {
+                        row.style.alignItems = 'flex-start';
+                        row.style.textAlign = '';
+                        
+                        var cols = row.querySelectorAll('.col-xl-6, .col-lg-6');
+                        cols.forEach(function(col) {
+                            col.style.display = '';
+                            col.style.flexDirection = '';
+                            col.style.alignItems = '';
+                        });
+                        
+                        var thumbs = row.querySelectorAll('.tg-faq-thumb-wrap');
+                        thumbs.forEach(function(thumb) {
+                            thumb.style.textAlign = '';
+                            thumb.style.margin = '';
+                        });
+                    });
+                }
+            }
+            
+            // Initialize fixes
+            document.addEventListener('DOMContentLoaded', function() {
+                fixMobileViewport();
+                fixMobileLayout();
+            });
+            
+            // Re-apply fixes on orientation change
+            window.addEventListener('orientationchange', function() {
+                setTimeout(function() {
+                    fixMobileViewport();
+                    fixMobileLayout();
+                }, 100);
+            });
+            
+            // Re-apply fixes on resize
+            window.addEventListener('resize', function() {
+                fixMobileLayout();
+            });
+            
+        })();
+    </script>
+    
     <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/isotope.pkgd.min.js"></script>
